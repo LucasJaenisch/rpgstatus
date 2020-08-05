@@ -1,2 +1,0 @@
-# rpgstatus
-buff stuff

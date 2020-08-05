@@ -17,6 +17,12 @@ _global_script_class_icons={
 
 config/name="rpgstatus"
 config/icon="res://icon.png"
+config/version="0.1.0"
+
+[display]
+
+window/size/width=480
+window/size/height=270
 
 [input]
 
