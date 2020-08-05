@@ -1,7 +1,7 @@
 {
 	"1" : {
 		"icon" : "res://chararacters/Lifestealer_minimap_icon.png",
-		"name" : "Naix",
+		"my_name" : "Naix",
 		"title" : "Lifestealer",
 		"health" : 200.0,
 		"damage" : 27.0,
@@ -18,7 +18,7 @@
 
 	"2" : {
 		"icon" : "res://chararacters/Timbersaw_minimap_icon.png",
-		"name" : "Rizzrack",
+		"my_name" : "Rizzrack",
 		"title" : "Timbersaw",
 		
 		"health" : 200.0,
@@ -38,19 +38,16 @@
 
 	"3" : {
 		"icon" : "res://chararacters/Pudge_minimap_icon.png",
-		"name" : "Pudge",
+		"my_name" : "Pudge",
 		"title" : "Butcher",
-		
 		"health" : 200.0,
 		"damage" : 46.0,
 		"move_speed" : 280.0,
 		"attack_speed" : 100.0,
-		"rotation_speed" : 5.0,
-		
+		"rotation_speed" : 5.0,	
 		"agility" : 14.0,
 		"strength" : 25.0,
-		"intelligence" : 23.0,
-		
+		"intelligence" : 23.0,	
 		"agility_gain" : 1.5,
 		"strength_gain" : 3.2,
 		"intelligence_gain" : 1.5

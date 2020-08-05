@@ -1,7 +1,8 @@
 extends Node
 
 var rand = RandomNumberGenerator.new()
-var hero_scene = load("res://scenes/hero.tscn")
+var enemy_scene = load("res://scenes/Enemy.tscn")
+var player_scene = load("res://scenes/Player.tscn")
 var screen_size
 
 var json_result = {}
@@ -21,15 +22,19 @@ func _ready():
 	while i < json_result.size() + 1:
 		auto_spawn_entities(i)
 		i += 1
+	
+	var player = player_scene.instance()
+	player.my_stats = json_result["1"]
+	add_child(player)
 
 func auto_spawn_entities(i):
-	var hero = hero_scene.instance()
+	var enemy = enemy_scene.instance()
 	rand.randomize()
 	var x = rand.randf_range(0, screen_size.x)
 	rand.randomize()
 	var y = rand.randf_range(0, screen_size.y)
 	
-	hero.my_stats = json_result[String(i)]
-	hero.position.y = y
-	hero.position.x = x
-	add_child(hero)
+	enemy.my_stats = json_result[String(i)]
+	enemy.position.y = y
+	enemy.position.x = x
+	add_child(enemy)
