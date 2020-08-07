@@ -1,33 +1,35 @@
 extends "res://scenes/Character.gd"
 
-var steering_control = preload("res://scenes/Steering.gd")
+var steering_control = preload("res://scenes/Steering.gd").new();
 
-const MAX_SPEED = 300
-const MAX_FORCE = 0.02
 var steering_force = Vector2()
-
-#var velocity = Vector2()
 
 onready var target 
 
-func _ready():
-	#_fixed_process(true)
-
-	pass
 	
 func _physics_process(delta):
+	var velocity_temp = Vector2()
 	velocity = Vector2()
 	
-	velocity = steering(position, get_viewport().get_mouse_position(), velocity, delta)
-	velocity = move_and_collide(velocity  * MAX_SPEED)
+	#test_steering(delta)
+	#test_steering_and_arriving(delta)
+	#test_fleeing(delta)
+	#test_wander()
+	test_pursuit(delta)
+	move_and_collide(velocity + velocity_temp)
 	target = get_viewport().get_mouse_position()
-	
 
-func steering(cur_pos, target_pos, cur_vel, delta):
-	var distance_to_target = target_pos - cur_pos
-	var desired_vel = distance_to_target.normalized()
-	
-	steering_force = (desired_vel - cur_vel) / delta
-	steering_force = steering_force.clamped(MAX_FORCE)
-	
-	return steering_force
+func test_steering(delta):
+	velocity = steering_control.steering(position, get_viewport().get_mouse_position(), velocity, delta)
+
+func test_steering_and_arriving(delta):
+	velocity = steering_control.steering_and_arriving(position, get_viewport().get_mouse_position(), velocity, 100, delta)
+
+func test_fleeing(delta):
+	velocity = steering_control.fleeing(position, get_viewport().get_mouse_position(), velocity, 100, delta)
+
+func test_wander():
+	velocity = steering_control.wander(velocity, 300, 100)
+
+func test_pursuit(delta):
+	velocity = steering_control.pursuit(position, get_viewport().get_mouse_position(), velocity, get_viewport().get_mouse_position() * 200, delta)

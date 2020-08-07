@@ -17,4 +17,4 @@ func move_input():
 		velocity.x -= 1
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
-	velocity = velocity.normalized() * my_stats.move_speed * 1.5
+	velocity = velocity.normalized() * my_stats.move_speed 
