@@ -6,6 +6,8 @@ var sprite
 
 var my_stats = {}
 
+signal attacked(damage)
+
 func buff_percentage_timer(attribute, value, timer):
 	var old_attribute
 	old_attribute = my_stats[attribute]
@@ -19,15 +21,19 @@ func buff_static_timer(attribute, value, timer):
 	my_stats[attribute] -= value
 	
 func buff_percentage_permanent(attribute, value):
-	var old_attribute
-	old_attribute = my_stats[attribute]
 	my_stats[attribute] += my_stats[attribute] * (value/100)
 	
-func print_stats():
-	sprite = load(my_stats.icon)
-	#print(my_stats.icon)
-	$Pivot/Sprite.texture = sprite
-	$Shadow.texture = sprite
+func buff_static_permanent(attribute, value):
+	my_stats[attribute] += value
+
+func attack(damage):
+	emit_signal("attacked", damage)
+	
+func take_damage(damage):
+	#animation hurt
+	my_stats.health -= damage
+
+func print_stats():	
 	print("\n", my_stats.my_name , ", the " 
 			, my_stats.title, "\n"
 			, "Health: " ,  my_stats.health , "\n"
@@ -41,3 +47,8 @@ func print_stats():
 			, "Agility Gain: ", my_stats.agility_gain, "\n"
 			, "Strength Gain: ", my_stats.strength_gain, "\n"
 			, "Intelligence Gain: ", my_stats.intelligence_gain)
+
+func on_coin_grabbed(coin_value):
+	print(coin_value)
+	my_stats.gold += coin_value
+	print("gold ", my_stats.gold)

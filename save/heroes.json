@@ -3,6 +3,8 @@
 		"icon" : "res://chararacters/Lifestealer_minimap_icon.png",
 		"my_name" : "Naix",
 		"title" : "Lifestealer",
+		"experience" : 0,
+		"gold" : 500,
 		"health" : 200.0,
 		"damage" : 27.0,
 		"move_speed" : 325.0,
@@ -20,17 +22,16 @@
 		"icon" : "res://chararacters/Timbersaw_minimap_icon.png",
 		"my_name" : "Rizzrack",
 		"title" : "Timbersaw",
-		
+		"experience" : 0,
+		"gold" : 500,
 		"health" : 200.0,
 		"damage" : 30.0,
 		"move_speed" : 290.0,
 		"attack_speed" : 100.0,
 		"rotation_speed" : 5.0,
-		
 		"agility" : 16.0,
 		"strength" : 24.0,
 		"intelligence" : 23.0,
-		
 		"agility_gain" : 1.6,
 		"strength_gain" : 3.2,
 		"intelligence_gain" : 2.7
@@ -40,6 +41,8 @@
 		"icon" : "res://chararacters/Pudge_minimap_icon.png",
 		"my_name" : "Pudge",
 		"title" : "Butcher",
+		"experience" : 0,
+		"gold" : 500,
 		"health" : 200.0,
 		"damage" : 46.0,
 		"move_speed" : 280.0,
