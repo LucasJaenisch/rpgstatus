@@ -29,17 +29,13 @@ func _ready():
 		
 	spawn_player()
 	spawn_enemy(2, 50, 50)
-	spawn_enemy(1, 10, 10)
-	spawn_enemy(3, 100, 100)
+	#spawn_enemy(1, 10, 10)
+	#spawn_enemy(3, 100, 100)
 	spawn_coins(5, 50, Color(0,1,0))
 	spawn_coins(5, 100, Color(1,1,0))
 	
 func spawn_enemy(id, x, y):
 	var enemy = enemy_scene.instance()
-	rand.randomize()
-	x = rand.randf_range(0, screen_size.x)
-	rand.randomize()
-	y = rand.randf_range(0, screen_size.y)
 	enemy.my_stats = json_result[String(id)]
 	enemy.sprite = load(enemy.my_stats.icon)
 	enemy.get_node("Pivot/Sprite").texture = enemy.sprite
@@ -84,3 +80,5 @@ func spawn_player():
 	player.get_node("Pivot/Sprite").texture = player.sprite
 	player.get_node("Shadow").texture = player.sprite
 	add_child(player)
+	
+

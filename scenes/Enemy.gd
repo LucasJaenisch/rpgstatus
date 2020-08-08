@@ -1,35 +1,40 @@
 extends "res://scenes/Character.gd"
 
-var steering_control = preload("res://scenes/Steering.gd").new();
+var steering_control = preload("res://scenes/Steering.tscn").instance()
 
-var steering_force = Vector2()
+var target = Vector2(0, 0)
 
-onready var target 
-
+func _ready():
+	add_child(steering_control)
 	
 func _physics_process(delta):
-	var velocity_temp = Vector2()
-	velocity = Vector2()
 	
-	#test_steering(delta)
-	#test_steering_and_arriving(delta)
-	#test_fleeing(delta)
+	#test_seek()
 	#test_wander()
-	test_pursuit(delta)
-	move_and_collide(velocity + velocity_temp)
-	target = get_viewport().get_mouse_position()
+	test_flee()
+	#test_arrival()
+	velocity = move_and_slide(velocity)
+	target = get_node("../Player").position
 
-func test_steering(delta):
-	velocity = steering_control.steering(position, get_viewport().get_mouse_position(), velocity, delta)
+func test_seek():
+	velocity = steering_control.seek(position, target, velocity, my_stats.move_speed)
 
-func test_steering_and_arriving(delta):
-	velocity = steering_control.steering_and_arriving(position, get_viewport().get_mouse_position(), velocity, 100, delta)
-
-func test_fleeing(delta):
-	velocity = steering_control.fleeing(position, get_viewport().get_mouse_position(), velocity, 100, delta)
+func test_flee():
+	velocity = steering_control.flee(position, target, velocity, 200, my_stats.move_speed)
+	
+func test_arrival():
+	velocity = steering_control.arrival(position, target, velocity, 200, my_stats.move_speed)
 
 func test_wander():
-	velocity = steering_control.wander(velocity, 300, 100)
+	velocity = steering_control.wander(position, velocity, 100, 200)
 
-func test_pursuit(delta):
-	velocity = steering_control.pursuit(position, get_viewport().get_mouse_position(), velocity, get_viewport().get_mouse_position() * 200, delta)
+func draw_circle_arc_poly(center, radius, angle_from, angle_to, color):
+	var nb_points = 32
+	var points_arc = PoolVector2Array()
+	points_arc.push_back(center)
+	var colors = PoolColorArray([color])
+
+	for i in range(nb_points + 1):
+		var angle_point = deg2rad(angle_from + i * (angle_to - angle_from) / nb_points - 90)
+		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * radius)
+	draw_polygon(points_arc, colors)
