@@ -10,8 +10,8 @@ func _ready():
 func _physics_process(delta):
 	
 	#test_seek()
-	#test_wander()
-	test_flee()
+	test_wander()
+	#test_flee()
 	#test_arrival()
 	velocity = move_and_slide(velocity)
 	target = get_node("../Player").position
@@ -26,7 +26,7 @@ func test_arrival():
 	velocity = steering_control.arrival(position, target, velocity, 200, my_stats.move_speed)
 
 func test_wander():
-	velocity = steering_control.wander(position, velocity, 100, 200)
+	velocity = steering_control.wander(position, velocity, 200, my_stats.move_speed)
 
 func draw_circle_arc_poly(center, radius, angle_from, angle_to, color):
 	var nb_points = 32

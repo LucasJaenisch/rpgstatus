@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 var rand = RandomNumberGenerator.new()
 var enemy_scene = load("res://scenes/Enemy.tscn")
@@ -28,9 +28,9 @@ func _ready():
 	#	i += 1
 		
 	spawn_player()
-	spawn_enemy(2, 50, 50)
-	#spawn_enemy(1, 10, 10)
-	#spawn_enemy(3, 100, 100)
+	spawn_enemy(2, 200, 200)
+	spawn_enemy(1, 200, 200)
+	spawn_enemy(3, 100, 100)
 	spawn_coins(5, 50, Color(0,1,0))
 	spawn_coins(5, 100, Color(1,1,0))
 	

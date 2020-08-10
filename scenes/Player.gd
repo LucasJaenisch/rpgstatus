@@ -29,6 +29,8 @@ var green = Color(0,1,0)
 var blue = Color(0,0,1)
 
 func _draw():
+
+	
 	#draw_circle_arc_poly(velocity, 100, 100, 200, Color(1,0,0))
 	#draw_line(position, target - position,red, width)
 	pass
