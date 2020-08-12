@@ -33,7 +33,7 @@ func take_damage(damage):
 	#animation hurt
 	my_stats.health -= damage
 
-func print_stats():	
+func print_stats():
 	print("\n", my_stats.my_name , ", the " 
 			, my_stats.title, "\n"
 			, "Health: " ,  my_stats.health , "\n"

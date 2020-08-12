@@ -1,5 +1,5 @@
 {
-	"1" : {
+	"lifestealer" : {
 		"icon" : "res://chararacters/Lifestealer_minimap_icon.png",
 		"my_name" : "Naix",
 		"title" : "Lifestealer",
@@ -18,7 +18,7 @@
 		"intelligence_gain" : 1.8
 	},
 
-	"2" : {
+	"timber" : {
 		"icon" : "res://chararacters/Timbersaw_minimap_icon.png",
 		"my_name" : "Rizzrack",
 		"title" : "Timbersaw",
@@ -37,7 +37,7 @@
 		"intelligence_gain" : 2.7
 	},
 
-	"3" : {
+	"pudge" : {
 		"icon" : "res://chararacters/Pudge_minimap_icon.png",
 		"my_name" : "Pudge",
 		"title" : "Butcher",

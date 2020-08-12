@@ -6,6 +6,9 @@ func _ready():
 func _process(delta):
 	update()
 	
+func _input(event):
+	print(event.as_text())
+	
 func _physics_process(delta):
   move_input()
   move_and_slide(velocity)

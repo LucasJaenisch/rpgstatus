@@ -26,13 +26,17 @@ func _ready():
 	#while i < json_result.size() + 1:
 	#	spawn_enemy(i)
 	#	i += 1
-		
+	
 	spawn_player()
-	spawn_enemy(2, 200, 200)
-	spawn_enemy(1, 200, 200)
-	spawn_enemy(3, 100, 100)
+	#spawn_enemy("lifestealer", get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
+	#spawn_enemy("pudge", get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
+	#spawn_enemy("timber", get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
 	spawn_coins(5, 50, Color(0,1,0))
 	spawn_coins(5, 100, Color(1,1,0))
+	
+func _input(event):
+	#if event.is_action_pressed("")
+	pass
 	
 func spawn_enemy(id, x, y):
 	var enemy = enemy_scene.instance()
@@ -75,7 +79,7 @@ func spawn_coins(amount, value, color):
 		
 func spawn_player():
 	var player = player_scene.instance()
-	player.my_stats = json_result["1"]
+	player.my_stats = json_result["lifestealer"]
 	player.sprite = load(player.my_stats.icon)
 	player.get_node("Pivot/Sprite").texture = player.sprite
 	player.get_node("Shadow").texture = player.sprite

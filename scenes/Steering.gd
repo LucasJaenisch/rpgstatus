@@ -9,8 +9,8 @@ var desired_velocity = Vector2()
 var steering_force = Vector2()
 
 #wander
-var circle_center = Vector2()
-var circle_radius = Vector2()
+var circle_center = Vector2(0,0)
+var circle_radius = 0
 
 #colors
 var width = 3
@@ -53,8 +53,11 @@ func _physics_process(delta):
 
 
 func _draw():
-  #draw_circle_arc_poly(velocity, 100, 100, 200, Color(1,0,0))
-  
+	draw_wander_debug()
+	#draw_debug()
+	pass
+
+func draw_wander_debug():
 	#wander circle
 	draw_circle(circle_center, circle_radius, other)
 	draw_circle(random_point, 4, black)
@@ -65,13 +68,13 @@ func _draw():
 	#steering
 	draw_line(position, random_point - position , blue, width)
 	
+func draw_debug():
 	#velocity
-	#draw_line(position, vel, red, width)
+	draw_line(position, vel, red, width)
 	#desired
-	#draw_line(position, desired_velocity, green, width) #drawline adds the vector with the current position of the node using it fox the first vector
+	draw_line(position, desired_velocity, green, width) #drawline adds the vector with the current position of the node using it fox the first vector
 	#steering
-	#draw_line(vel, steering_force + desired_velocity, blue, width)
-
+	draw_line(vel, steering_force + desired_velocity, blue, width)
 
 #goes to direction, just that
 func seek(position, target, velocity, move_speed):

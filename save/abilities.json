@@ -1,0 +1,32 @@
+{
+	"pudge_meat_hook" : {
+		//general
+		"ability_texture_name" : "pudge_meat_hook",
+		"ability_behavior" : "ability_behavior_point",
+		"script_file" : "pudge_meat_hook",
+		//casting
+		"ability_cast_range" : [1000, 1100, 1200, 1300],
+		//time
+		"ability_cooldown" : [13, 12, 11, 10],
+		//special
+		"ability_special" : {
+			"hook_speed" : 1600,
+			"hook_width" : 100,
+			"hook_distance" : [1000, 1100, 1200, 1300],
+			"hook_damage" : [90, 180, 270, 360]
+		}
+	},
+
+	"pudge_flesh_heap" : {
+		//general
+		"ability_texture_name" : "pudge_flesh_heap",
+		"ability_behavior" : "ability_behavior_passive",
+		"script_file" : "pudge_flesh_heap",
+
+		//special
+		"ability_special" : {
+			"flesh_heap_strength_buff_amount" : [1.0, 1.5, 2.0, 2.5],
+			"flesh_heap_range" : 450
+		}
+	}
+}
